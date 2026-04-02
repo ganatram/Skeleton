@@ -1,6 +1,6 @@
-import { NewPostsData, SavedPostData } from './types';
+import { NewPostData, SavedPostData } from './types';
 
-export async function savePost(newPostData: NewPostsData) {
+export async function savePost(newPostData: NewPostData) {
   const response = await fetch(process.env.REACT_APP_API_URL!, {
     method: 'POST',
     body: JSON.stringify(newPostData),

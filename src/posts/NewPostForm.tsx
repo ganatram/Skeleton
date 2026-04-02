@@ -1,16 +1,16 @@
 import { FieldError, useForm } from 'react-hook-form';
 import { ValidationError } from './ValidationError';
-import { NewPostsData } from './types';
+import { NewPostData } from './types';
 
 type Props = {
-  onSave: (newPost: NewPostsData) => void;
+  onSave: (newPost: NewPostData) => void;
 };
 export function NewPostForm({ onSave }: Props) {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isSubmitSuccessful },
-  } = useForm<NewPostsData>();
+  } = useForm<NewPostData>();
 
   const fieldStyle = 'flex flex-col mb-2';
   function getEditorStyle(fieldError: FieldError | undefined) {

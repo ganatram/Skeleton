@@ -4,7 +4,7 @@ type Props = {
   posts: PostData[];
 };
 
-export function PostList({ posts }: Props) {
+export function PostsList({ posts }: Props) {
   return (
     <ul className="list-none">
       {posts.map((post) => (

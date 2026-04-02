@@ -4,7 +4,7 @@ export type PostData = {
   description: string;
 };
 
-export type NewPostsData = {
+export type NewPostData = {
   title: string;
   description: string;
 };

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { getPosts } from './getPosts';
 import { PostData, NewPostData } from './types';
-import { PostsList } from './PostsList';
-import { savePost } from './savePost';
 import { NewPostForm } from './NewPostForm';
+import { PostsList } from './PostsList';
+import { savePost } from './savePosts';
 
 export function PostsPage() {
   const [isLoading, setIsLoading] = useState(true);
