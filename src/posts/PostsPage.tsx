@@ -1,36 +1,37 @@
 import { useEffect, useState } from 'react';
 import { getPosts } from './getPosts';
-import { PostData } from './types';
-import { PostList } from './PostList';
+import { PostData, NewPostData } from './types';
+import { PostsList } from './PostsList';
+import { savePost } from './savePost';
+import { NewPostForm } from './NewPostForm';
 
 export function PostsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState<PostData[]>([]);
-
   useEffect(() => {
-    let cancel = false; // sync event
+    let cancel = false;
     getPosts().then((data) => {
-      // async event
       if (!cancel) {
-        setPosts(data); //
+        setPosts(data);
         setIsLoading(false);
       }
     });
-
     return () => {
-      // clearing function (optional) // async event
-      cancel = true; //
+      cancel = true;
     };
   }, []);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
+  async function handleSave(newPostData: NewPostData) {
+    const newPost = await savePost(newPostData);
+    setPosts([newPost, ...posts]);
   }
-
+  if (isLoading) {
+    return <div className="w-96 mx-auto mt-6">Loading ...</div>;
+  }
   return (
-    <div>
-      <h2>Posts:</h2>
-      <PostList posts={posts} />
+    <div className="w-96 mx-auto mt-6">
+      <h2 className="text-xl text-slate-900 font-bold">Posts</h2>
+      <NewPostForm onSave={handleSave} />
+      <PostsList posts={posts} />
     </div>
   );
 }
