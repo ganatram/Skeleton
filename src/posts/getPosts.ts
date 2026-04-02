@@ -18,9 +18,9 @@ export function assertIsPosts(postsData: unknown): asserts postsData is PostData
     if (!('id' in post)) {
       throw new Error("post doesn't contain id");
     }
-    if (typeof post.id !== 'number') {
+    /*  if (typeof post.id !== 'number') {
       throw new Error('id is not a number');
-    }
+    } */
     if (!('title' in post)) {
       throw new Error("post doesn't contain title");
     }
