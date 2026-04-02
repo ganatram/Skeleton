@@ -11,7 +11,6 @@ export function PostList({ posts }: Props) {
         <li key={post.id} className="border-b py-4">
           <h3 className="text-slate-900 font-bold">{post.title}</h3>
           <p className="text-slate-900 ">{post.description}</p>
-          {/* <p className="text-slate-900 ">{post.id}</p> */}
         </li>
       ))}
     </ul>
